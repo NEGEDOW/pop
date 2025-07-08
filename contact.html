@@ -172,7 +172,7 @@ Ready to make your Web3 project go viral? Let's talk about how we can help you d
 </div>
 <div>
 <label class="block text-gray-300 mb-2 font-medium">Project Link</label>
-<input type="url" name="project-link" class="form-input w-full px-4 py-3 rounded-lg text-white placeholder-gray-400" placeholder="https://your-project.com">
+<input type="text" name="project-link" class="form-input w-full px-4 py-3 rounded-lg text-white placeholder-gray-400" placeholder="https://your-project.com">
 </div>
 <div>
 <label class="block text-gray-300 mb-2 font-medium">Service Needed *</label>
@@ -427,11 +427,51 @@ document.getElementById('contact-form').addEventListener('submit', function(e) {
   const formData = new FormData(this);
   const data = Object.fromEntries(formData);
   
-  // Show success message (in a real app, you'd send this to your backend)
-  alert('Thank you for your message! We\'ll get back to you within 2 hours.');
+  // Supabase configuration
+  const SUPABASE_URL = 'https://anddhnwocteaacimprkp.supabase.co';
+  const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFuZGRobndvY3RlYWFjaW1wcmtwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTE5Njc0NDEsImV4cCI6MjA2NzU0MzQ0MX0.NV8kbuCH7-BZrPaOQlWR5TiCtB7Q5qUdzzoHLGJiN2o';
   
-  // Reset form
-  this.reset();
+  // Send data to Supabase
+  const requestData = {
+    name: data.name,
+    email: data.email,
+    project: data.project || '',
+    project_link: data['project-link'] || '',
+    service: data.service,
+    budget: data.budget || '',
+    timeline: data.timeline || '',
+    message: data.message
+  };
+  
+  console.log('Sending data:', requestData);
+  console.log('URL:', `${SUPABASE_URL}/rest/v1/contacts`);
+  
+  fetch(`${SUPABASE_URL}/rest/v1/contacts`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'apikey': SUPABASE_ANON_KEY,
+      'Authorization': `Bearer ${SUPABASE_ANON_KEY}`
+    },
+    body: JSON.stringify(requestData)
+  })
+  .then(response => {
+    console.log('Response status:', response.status);
+    return response.json().catch(() => ({})).then(data => ({ status: response.status, data }));
+  })
+  .then(({ status, data }) => {
+    console.log('Response data:', data);
+    if (status === 201 || status === 200) {
+      alert('Thank you for your message! We\'ll get back to you within 2 hours.');
+      document.getElementById('contact-form').reset();
+    } else {
+      throw new Error('Unexpected response: ' + JSON.stringify(data));
+    }
+  })
+  .catch(error => {
+    console.error('Error:', error);
+    alert('Error sending message. Please try again later.');
+  });
 });
 
 // Smooth scrolling for anchor links
