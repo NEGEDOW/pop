@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Space+Grotesk%3Awght%40400%3B500%3B700&amp;family=Syne%3Awght%40700%3B800" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<title>PoP - Proof of Promo | Web3 Marketing Agency</title>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style type="text/tailwindcss">
+      :root {
+        --electric-blue: #00D4FF;
+        --purple: #8B5CF6;
+        --mint-green: #00FFA3;
+      }
+      .glitch {
+        text-shadow:
+          -2px -2px 0 var(--purple),
+          2px 2px 0 var(--electric-blue),
+          -2px 2px 0 var(--mint-green),
+          2px -2px 0 var(--electric-blue);
+      }
+      @keyframes glitch {
+        0%, 100% {
+          text-shadow:
+            -2px -2px 0 var(--purple),
+            2px 2px 0 var(--electric-blue),
+            -2px 2px 0 var(--mint-green),
+            2px -2px 0 var(--electric-blue);
+        }
+        25% {
+          text-shadow:
+            2px 2px 0 var(--purple),
+            -2px -2px 0 var(--electric-blue),
+            2px -2px 0 var(--mint-green),
+            -2px 2px 0 var(--electric-blue);
+        }
+        50% {
+          text-shadow:
+            -2px 2px 0 var(--purple),
+            2px -2px 0 var(--electric-blue),
+            -2px -2px 0 var(--mint-green),
+            2px 2px 0 var(--electric-blue);
+        }
+        75% {
+           text-shadow:
+            2px -2px 0 var(--purple),
+            -2px 2px 0 var(--electric-blue),
+            2px 2px 0 var(--mint-green),
+            -2px -2px 0 var(--electric-blue);
+        }
+      }
+      .glow-card {
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        transition: all 0.3s ease;
+      }
+      .glow-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 40px rgba(0, 212, 255, 0.2);
+        border-color: var(--electric-blue);
+      }
+      .mobile-menu {
+        display: none;
+      }
+      .mobile-menu.active {
+        display: block;
+      }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-black">
+<div class="relative flex size-full min-h-screen flex-col dark justify-between group/design-root overflow-hidden font-[Syne]">
+<!-- Background -->
+<div class="absolute inset-0 z-0">
+<div class="absolute inset-0 bg-black opacity-50"></div>
+<div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-indigo-900/40 via-transparent to-transparent"></div>
+<div class="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] from-blue-900/40 via-transparent to-transparent"></div>
+<div class="absolute top-1/4 left-1/4 h-32 w-32 animate-pulse rounded-full bg-purple-500/20 blur-3xl"></div>
+<div class="absolute bottom-1/4 right-1/4 h-32 w-32 animate-pulse rounded-full bg-blue-500/20 blur-3xl"></div>
+<div class="absolute top-1/2 left-1/2 h-48 w-48 animate-pulse rounded-full bg-green-500/10 blur-3xl"></div>
+</div>
+
+<!-- Header -->
+<header class="relative z-20 bg-black/20 backdrop-blur-md">
+<div class="container mx-auto px-6 py-4">
+<nav class="flex items-center justify-between text-white">
+<div class="text-2xl font-bold uppercase tracking-widest font-[Syne] text-white">
+PoP
+</div>
+<button class="md:hidden" id="mobile-menu-btn">
+<svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M4 6h16M4 12h16m-7 6h7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+<div class="hidden md:flex items-center space-x-8 text-sm uppercase tracking-wider">
+<a class="hover:text-[var(--electric-blue)] transition-colors duration-300" href="services.html">Services</a>
+<a class="hover:text-[var(--electric-blue)] transition-colors duration-300" href="work.html">Work</a>
+<a class="hover:text-[var(--electric-blue)] transition-colors duration-300" href="about.html">About</a>
+<a class="hover:text-[var(--electric-blue)] transition-colors duration-300" href="blog.html">Blog</a>
+<a class="hover:text-[var(--electric-blue)] transition-colors duration-300" href="contact.html">Contact</a>
+</div>
+</nav>
+<!-- Mobile Menu -->
+<div class="mobile-menu md:hidden mt-4 bg-black/80 backdrop-blur-md rounded-lg p-4" id="mobile-menu">
+<div class="flex flex-col space-y-4 text-sm uppercase tracking-wider">
+<a class="hover:text-[var(--electric-blue)] transition-colors duration-300" href="services.html">Services</a>
+<a class="hover:text-[var(--electric-blue)] transition-colors duration-300" href="work.html">Work</a>
+<a class="hover:text-[var(--electric-blue)] transition-colors duration-300" href="about.html">About</a>
+<a class="hover:text-[var(--electric-blue)] transition-colors duration-300" href="blog.html">Blog</a>
+<a class="hover:text-[var(--electric-blue)] transition-colors duration-300" href="contact.html">Contact</a>
+</div>
+</div>
+</div>
+</header>
+
+<!-- Hero Section -->
+<section class="relative z-10 py-20 px-4 text-center">
+<div class="container mx-auto">
+<div class="flex flex-col items-center gap-6">
+<h1 class="text-7xl font-extrabold text-white tracking-tighter font-[Syne] glitch md:text-9xl">
+PoP
+</h1>
+<h2 class="text-xl font-medium uppercase tracking-[0.2em] text-gray-300 md:text-2xl">
+Proof of Promo
+</h2>
+<p class="max-w-2xl text-lg text-gray-400 mb-4">
+We architect viral campaigns and build vibrant communities for the new digital frontier. From token launches to Farcaster domination - we make your Web3 project impossible to ignore.
+</p>
+
+<div class="flex flex-col sm:flex-row gap-4">
+<button class="flex min-w-[120px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-8 bg-transparent border-2 border-[var(--electric-blue)] text-lg font-bold text-white shadow-[0_0_15px_var(--electric-blue),_inset_0_0_15px_var(--electric-blue)] transition-all duration-300 hover:bg-[var(--electric-blue)] hover:shadow-[0_0_30px_var(--electric-blue)]">
+<span class="truncate">Launch Your Project</span>
+</button>
+<button class="flex min-w-[120px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-8 bg-transparent border-2 border-[var(--mint-green)] text-lg font-bold text-white shadow-[0_0_15px_var(--mint-green),_inset_0_0_15px_var(--mint-green)] transition-all duration-300 hover:bg-[var(--mint-green)] hover:text-black hover:shadow-[0_0_30px_var(--mint-green)]">
+<span class="truncate">View Our Work</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Services Preview Section -->
+<section class="relative z-10 py-12 px-4">
+<div class="container mx-auto">
+<div class="text-center mb-16">
+<h3 class="text-4xl font-bold text-white font-[Syne] mb-4">Our Expertise</h3>
+<p class="text-gray-400 max-w-2xl mx-auto">We specialize in creating viral moments and building unstoppable momentum for Web3 projects</p>
+</div>
+<div class="grid md:grid-cols-3 gap-8">
+<div class="relative group">
+<div class="absolute inset-0 bg-gradient-to-br from-[var(--electric-blue)]/20 via-transparent to-[var(--electric-blue)]/5 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-700"></div>
+<div class="relative bg-white/5 backdrop-blur-2xl border border-white/10 rounded-3xl p-8 text-center hover:bg-white/10 transition-all duration-700 shadow-[0_8px_32px_rgba(0,212,255,0.15)]">
+<div class="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent rounded-3xl"></div>
+<div class="relative z-10">
+<h4 class="text-2xl font-bold text-transparent bg-gradient-to-br from-[var(--electric-blue)] via-white to-[var(--electric-blue)]/70 bg-clip-text mb-4 font-[Syne]">Token Launches</h4>
+<p class="text-gray-300">End-to-end token launch strategy, from concept to moon. We handle everything.</p>
+</div>
+</div>
+</div>
+<div class="relative group">
+<div class="absolute inset-0 bg-gradient-to-br from-[var(--purple)]/20 via-transparent to-[var(--purple)]/5 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-700"></div>
+<div class="relative bg-white/5 backdrop-blur-2xl border border-white/10 rounded-3xl p-8 text-center hover:bg-white/10 transition-all duration-700 shadow-[0_8px_32px_rgba(139,92,246,0.15)]">
+<div class="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent rounded-3xl"></div>
+<div class="relative z-10">
+<h4 class="text-2xl font-bold text-transparent bg-gradient-to-br from-[var(--purple)] via-white to-[var(--purple)]/70 bg-clip-text mb-4 font-[Syne]">Social Media Domination</h4>
+<p class="text-gray-300">Viral content creation and community building on Farcaster and X platforms.</p>
+</div>
+</div>
+</div>
+<div class="relative group">
+<div class="absolute inset-0 bg-gradient-to-br from-[var(--mint-green)]/20 via-transparent to-[var(--mint-green)]/5 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-700"></div>
+<div class="relative bg-white/5 backdrop-blur-2xl border border-white/10 rounded-3xl p-8 text-center hover:bg-white/10 transition-all duration-700 shadow-[0_8px_32px_rgba(0,255,163,0.15)]">
+<div class="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent rounded-3xl"></div>
+<div class="relative z-10">
+<h4 class="text-2xl font-bold text-transparent bg-gradient-to-br from-[var(--mint-green)] via-white to-[var(--mint-green)]/70 bg-clip-text mb-4 font-[Syne]">Web3 Marketing</h4>
+<p class="text-gray-300">Full-spectrum digital marketing tailored for the decentralized world.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Methods Section -->
+<section class="relative z-10 py-20 px-4">
+<div class="container mx-auto">
+<div class="text-center mb-16">
+<h3 class="text-4xl font-bold text-white font-[Syne] mb-4">Our Methods</h3>
+<p class="text-gray-400 max-w-2xl mx-auto">Proven strategies that turn projects into movements</p>
+</div>
+
+<div class="max-w-4xl mx-auto space-y-4 mb-12">
+<!-- Method 1 -->
+<div class="relative group">
+<div class="absolute inset-0 bg-gradient-to-r from-[var(--electric-blue)]/15 via-transparent to-[var(--electric-blue)]/5 rounded-xl blur-lg group-hover:blur-xl transition-all duration-700"></div>
+<div class="relative bg-white/5 backdrop-blur-2xl border border-white/10 rounded-xl p-6 hover:bg-white/10 transition-all duration-700 shadow-[0_8px_32px_rgba(0,212,255,0.1)]">
+<div class="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent rounded-xl"></div>
+<div class="relative z-10 flex items-start space-x-4">
+<div class="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-[var(--electric-blue)] to-[var(--electric-blue)]/70 rounded-lg flex items-center justify-center font-bold text-black font-[Syne] text-sm">
+01
+</div>
+<div class="flex-1">
+<h4 class="text-lg font-bold text-white font-[Syne] mb-2">Platform-Native Approach</h4>
+<p class="text-gray-300 leading-relaxed text-sm">We speak the language of each platform - from Farcaster's community-first culture to X's viral mechanics. No copy-paste strategies.</p>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Method 2 -->
+<div class="relative group">
+<div class="absolute inset-0 bg-gradient-to-r from-[var(--purple)]/15 via-transparent to-[var(--purple)]/5 rounded-xl blur-lg group-hover:blur-xl transition-all duration-700"></div>
+<div class="relative bg-white/5 backdrop-blur-2xl border border-white/10 rounded-xl p-6 hover:bg-white/10 transition-all duration-700 shadow-[0_8px_32px_rgba(139,92,246,0.1)]">
+<div class="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent rounded-xl"></div>
+<div class="relative z-10 flex items-start space-x-4">
+<div class="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-[var(--purple)] to-[var(--purple)]/70 rounded-lg flex items-center justify-center font-bold text-white font-[Syne] text-sm">
+02
+</div>
+<div class="flex-1">
+<h4 class="text-lg font-bold text-white font-[Syne] mb-2">Audience Warming & Buzz</h4>
+<p class="text-gray-300 leading-relaxed text-sm">We build anticipation before launch, creating organic conversations that turn into viral moments. The hype is real because the community is real.</p>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Method 3 -->
+<div class="relative group">
+<div class="absolute inset-0 bg-gradient-to-r from-[var(--mint-green)]/15 via-transparent to-[var(--mint-green)]/5 rounded-xl blur-lg group-hover:blur-xl transition-all duration-700"></div>
+<div class="relative bg-white/5 backdrop-blur-2xl border border-white/10 rounded-xl p-6 hover:bg-white/10 transition-all duration-700 shadow-[0_8px_32px_rgba(0,255,163,0.1)]">
+<div class="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent rounded-xl"></div>
+<div class="relative z-10 flex items-start space-x-4">
+<div class="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-[var(--mint-green)] to-[var(--mint-green)]/70 rounded-lg flex items-center justify-center font-bold text-black font-[Syne] text-sm">
+03
+</div>
+<div class="flex-1">
+<h4 class="text-lg font-bold text-white font-[Syne] mb-2">Branding & Storytelling</h4>
+<p class="text-gray-300 leading-relaxed text-sm">Every project needs a story that resonates. We craft narratives that stick in people's minds and make them want to be part of your journey.</p>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Method 4 -->
+<div class="relative group">
+<div class="absolute inset-0 bg-gradient-to-r from-[var(--electric-blue)]/10 via-[var(--purple)]/10 to-transparent rounded-xl blur-lg group-hover:blur-xl transition-all duration-700"></div>
+<div class="relative bg-white/5 backdrop-blur-2xl border border-white/10 rounded-xl p-6 hover:bg-white/10 transition-all duration-700 shadow-[0_8px_32px_rgba(0,212,255,0.05)]">
+<div class="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent rounded-xl"></div>
+<div class="relative z-10 flex items-start space-x-4">
+<div class="flex-shrink-0 w-10 h-10 bg-gradient-to-r from-[var(--electric-blue)] to-[var(--purple)] rounded-lg flex items-center justify-center font-bold text-white font-[Syne] text-sm">
+04
+</div>
+<div class="flex-1">
+<h4 class="text-lg font-bold text-white font-[Syne] mb-2">Smart Contracts & Tech</h4>
+<p class="text-gray-300 leading-relaxed text-sm">Beyond marketing - we understand the tech stack and can guide technical decisions for maximum impact. We're builders who know how to promote.</p>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Method 5 -->
+<div class="relative group">
+<div class="absolute inset-0 bg-gradient-to-r from-[var(--mint-green)]/10 via-[var(--electric-blue)]/10 to-transparent rounded-xl blur-lg group-hover:blur-xl transition-all duration-700"></div>
+<div class="relative bg-white/5 backdrop-blur-2xl border border-white/10 rounded-xl p-6 hover:bg-white/10 transition-all duration-700 shadow-[0_8px_32px_rgba(0,255,163,0.05)]">
+<div class="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent rounded-xl"></div>
+<div class="relative z-10 flex items-start space-x-4">
+<div class="flex-shrink-0 w-10 h-10 bg-gradient-to-r from-[var(--mint-green)] to-[var(--electric-blue)] rounded-lg flex items-center justify-center font-bold text-black font-[Syne] text-sm">
+05
+</div>
+<div class="flex-1">
+<h4 class="text-lg font-bold text-white font-[Syne] mb-2">Mini Apps & Tools</h4>
+<p class="text-gray-300 leading-relaxed text-sm">We create interactive experiences and tools that give users reasons to engage and share your project. Utility drives virality.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Main Promise -->
+<div class="text-center">
+<div class="relative group max-w-4xl mx-auto">
+<div class="absolute inset-0 bg-gradient-to-br from-[var(--electric-blue)]/20 via-[var(--purple)]/15 to-[var(--mint-green)]/10 rounded-3xl blur-2xl group-hover:blur-3xl transition-all duration-700"></div>
+<div class="relative bg-white/5 backdrop-blur-2xl border border-white/10 rounded-3xl p-12 hover:bg-white/10 transition-all duration-700 shadow-[0_8px_32px_rgba(0,212,255,0.2)]">
+<div class="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent rounded-3xl"></div>
+<div class="relative z-10">
+<p class="text-2xl text-white font-medium leading-relaxed">
+We know how to make <span class="text-transparent bg-gradient-to-r from-[var(--electric-blue)] to-[var(--mint-green)] bg-clip-text font-bold">today</span> the day everyone starts talking about your project <span class="text-transparent bg-gradient-to-r from-[var(--purple)] to-[var(--electric-blue)] bg-clip-text font-bold">tomorrow</span>
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Stats Section -->
+<section class="relative z-10 py-8 px-4">
+<div class="container mx-auto">
+<div class="grid md:grid-cols-4 gap-6">
+<div class="relative group">
+<div class="absolute inset-0 bg-gradient-to-br from-[var(--electric-blue)]/10 to-transparent rounded-2xl blur-lg group-hover:blur-xl transition-all duration-500"></div>
+<div class="relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-6 text-center hover:bg-white/8 transition-all duration-500 shadow-[0_8px_32px_rgba(0,212,255,0.1)]">
+<div class="absolute inset-0 bg-gradient-to-br from-white/3 to-transparent rounded-2xl"></div>
+<div class="relative z-10">
+<div class="text-4xl font-bold text-transparent bg-gradient-to-br from-[var(--electric-blue)] to-[var(--electric-blue)]/70 bg-clip-text font-[Syne] mb-2">15+</div>
+<div class="text-gray-300 uppercase tracking-wider text-sm">Projects Launched</div>
+</div>
+</div>
+</div>
+<div class="relative group">
+<div class="absolute inset-0 bg-gradient-to-br from-[var(--purple)]/10 to-transparent rounded-2xl blur-lg group-hover:blur-xl transition-all duration-500"></div>
+<div class="relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-6 text-center hover:bg-white/8 transition-all duration-500 shadow-[0_8px_32px_rgba(139,92,246,0.1)]">
+<div class="absolute inset-0 bg-gradient-to-br from-white/3 to-transparent rounded-2xl"></div>
+<div class="relative z-10">
+<div class="text-4xl font-bold text-transparent bg-gradient-to-br from-[var(--purple)] to-[var(--purple)]/70 bg-clip-text font-[Syne] mb-2">100+</div>
+<div class="text-gray-300 uppercase tracking-wider text-sm">Tokens Launched</div>
+</div>
+</div>
+</div>
+<div class="relative group">
+<div class="absolute inset-0 bg-gradient-to-br from-[var(--mint-green)]/10 to-transparent rounded-2xl blur-lg group-hover:blur-xl transition-all duration-500"></div>
+<div class="relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-6 text-center hover:bg-white/8 transition-all duration-500 shadow-[0_8px_32px_rgba(0,255,163,0.1)]">
+<div class="absolute inset-0 bg-gradient-to-br from-white/3 to-transparent rounded-2xl"></div>
+<div class="relative z-10">
+<div class="text-4xl font-bold text-transparent bg-gradient-to-br from-[var(--mint-green)] to-[var(--mint-green)]/70 bg-clip-text font-[Syne] mb-2">93%</div>
+<div class="text-gray-300 uppercase tracking-wider text-sm">Success Rate</div>
+</div>
+</div>
+</div>
+<div class="relative group">
+<div class="absolute inset-0 bg-gradient-to-br from-[var(--electric-blue)]/10 via-[var(--purple)]/5 to-transparent rounded-2xl blur-lg group-hover:blur-xl transition-all duration-500"></div>
+<div class="relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-6 text-center hover:bg-white/8 transition-all duration-500 shadow-[0_8px_32px_rgba(0,212,255,0.1)]">
+<div class="absolute inset-0 bg-gradient-to-br from-white/3 to-transparent rounded-2xl"></div>
+<div class="relative z-10">
+<div class="text-4xl font-bold text-transparent bg-gradient-to-br from-[var(--electric-blue)] via-[var(--purple)] to-[var(--mint-green)] bg-clip-text font-[Syne] mb-2">786%</div>
+<div class="text-gray-300 uppercase tracking-wider text-sm">Avg ROI</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- CTA Section -->
+<section class="relative z-10 py-20 px-4 text-center">
+<div class="container mx-auto">
+<h3 class="text-4xl font-bold text-white font-[Syne] mb-4">Ready to Go Viral?</h3>
+<p class="text-gray-400 max-w-2xl mx-auto mb-8">Join the ranks of successful Web3 projects that chose PoP for their marketing needs. Your next viral moment is just one click away.</p>
+<a href="contact.html" class="inline-flex min-w-[120px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-8 bg-transparent border-2 border-[var(--electric-blue)] text-lg font-bold text-white shadow-[0_0_15px_var(--electric-blue),_inset_0_0_15px_var(--electric-blue)] transition-all duration-300 hover:bg-[var(--electric-blue)] hover:shadow-[0_0_30px_var(--electric-blue)]">
+<span class="truncate">Get Started Today</span>
+</a>
+</div>
+</section>
+
+<!-- Footer -->
+<footer class="relative z-10 p-8 text-center border-t border-gray-800">
+<div class="container mx-auto">
+<div class="flex flex-col md:flex-row justify-between items-center">
+<div class="text-2xl font-bold uppercase tracking-widest font-[Syne] mb-4 md:mb-0 text-white">
+PoP
+</div>
+<div class="flex space-x-6 mb-4 md:mb-0">
+<a href="#" class="text-gray-400 hover:text-[var(--electric-blue)] transition-colors">Twitter</a>
+<a href="#" class="text-gray-400 hover:text-[var(--electric-blue)] transition-colors">Warpcast</a>
+<a href="#" class="text-gray-400 hover:text-[var(--electric-blue)] transition-colors">Telegram</a>
+</div>
+</div>
+<div class="border-t border-gray-800 mt-8 pt-8">
+<p class="text-xs text-gray-500">© 2024 PoP (Proof of Promo). All rights reserved.</p>
+</div>
+</div>
+</footer>
+</div>
+
+<script>
+// Mobile menu toggle
+const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+const mobileMenu = document.getElementById('mobile-menu');
+
+mobileMenuBtn.addEventListener('click', () => {
+  mobileMenu.classList.toggle('active');
+});
+
+// Smooth scrolling for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({
+        behavior: 'smooth'
+      });
+    }
+  });
+});
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

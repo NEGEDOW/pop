@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Space+Grotesk%3Awght%40400%3B500%3B700&amp;family=Syne%3Awght%40700%3B800" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<title>Blog - PoP | Web3 Marketing Insights</title>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style type="text/tailwindcss">
+      :root {
+        --electric-blue: #00D4FF;
+        --purple: #8B5CF6;
+        --mint-green: #00FFA3;
+      }
+      .glitch {
+        text-shadow:
+          -2px -2px 0 var(--purple),
+          2px 2px 0 var(--electric-blue),
+          -2px 2px 0 var(--mint-green),
+          2px -2px 0 var(--electric-blue);
+      }
+      @keyframes glitch {
+        0%, 100% {
+          text-shadow:
+            -2px -2px 0 var(--purple),
+            2px 2px 0 var(--electric-blue),
+            -2px 2px 0 var(--mint-green),
+            2px -2px 0 var(--electric-blue);
+        }
+        25% {
+          text-shadow:
+            2px 2px 0 var(--purple),
+            -2px -2px 0 var(--electric-blue),
+            2px -2px 0 var(--mint-green),
+            -2px 2px 0 var(--electric-blue);
+        }
+        50% {
+          text-shadow:
+            -2px 2px 0 var(--purple),
+            2px -2px 0 var(--electric-blue),
+            -2px -2px 0 var(--mint-green),
+            2px 2px 0 var(--electric-blue);
+        }
+        75% {
+           text-shadow:
+            2px -2px 0 var(--purple),
+            -2px 2px 0 var(--electric-blue),
+            2px 2px 0 var(--mint-green),
+            -2px -2px 0 var(--electric-blue);
+        }
+      }
+      .blog-card {
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        transition: all 0.7s ease;
+      }
+      .blog-card:hover {
+        transform: translateY(-10px);
+        background: rgba(255, 255, 255, 0.1);
+        box-shadow: 0 30px 60px rgba(0, 212, 255, 0.3);
+        border-color: var(--electric-blue);
+      }
+      .featured-card {
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        transition: all 0.7s ease;
+      }
+      .featured-card:hover {
+        transform: translateY(-5px);
+        background: rgba(255, 255, 255, 0.1);
+        box-shadow: 0 20px 40px rgba(139, 92, 246, 0.3);
+        border-color: var(--purple);
+      }
+      .mobile-menu {
+        display: none;
+      }
+      .mobile-menu.active {
+        display: block;
+      }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-black">
+<div class="relative flex size-full min-h-screen flex-col dark group/design-root overflow-hidden font-[Syne]">
+<!-- Background -->
+<div class="absolute inset-0 z-0">
+<div class="absolute inset-0 bg-black opacity-50"></div>
+<div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-indigo-900/40 via-transparent to-transparent"></div>
+<div class="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] from-blue-900/40 via-transparent to-transparent"></div>
+<div class="absolute top-1/4 left-1/4 h-32 w-32 animate-pulse rounded-full bg-purple-500/20 blur-3xl"></div>
+<div class="absolute bottom-1/4 right-1/4 h-32 w-32 animate-pulse rounded-full bg-blue-500/20 blur-3xl"></div>
+<div class="absolute top-1/2 left-1/2 h-48 w-48 animate-pulse rounded-full bg-green-500/10 blur-3xl"></div>
+</div>
+
+<!-- Header -->
+<header class="relative z-20 bg-black/20 backdrop-blur-md">
+<div class="container mx-auto px-6 py-4">
+<nav class="flex items-center justify-between text-white">
+<a href="index.html" class="text-2xl font-bold uppercase tracking-widest font-[Syne] text-white">
+PoP
+</a>
+<button class="md:hidden" id="mobile-menu-btn">
+<svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M4 6h16M4 12h16m-7 6h7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+<div class="hidden md:flex items-center space-x-8 text-sm uppercase tracking-wider">
+<a class="hover:text-[var(--electric-blue)] transition-colors duration-300" href="services.html">Services</a>
+<a class="hover:text-[var(--electric-blue)] transition-colors duration-300" href="work.html">Work</a>
+<a class="hover:text-[var(--electric-blue)] transition-colors duration-300" href="about.html">About</a>
+<a class="text-[var(--electric-blue)] border-b-2 border-[var(--electric-blue)] pb-1" href="blog.html">Blog</a>
+<a class="hover:text-[var(--electric-blue)] transition-colors duration-300" href="contact.html">Contact</a>
+</div>
+</nav>
+<!-- Mobile Menu -->
+<div class="mobile-menu md:hidden mt-4 bg-black/80 backdrop-blur-md rounded-lg p-4" id="mobile-menu">
+<div class="flex flex-col space-y-4 text-sm uppercase tracking-wider">
+<a class="hover:text-[var(--electric-blue)] transition-colors duration-300" href="services.html">Services</a>
+<a class="hover:text-[var(--electric-blue)] transition-colors duration-300" href="work.html">Work</a>
+<a class="hover:text-[var(--electric-blue)] transition-colors duration-300" href="about.html">About</a>
+<a class="text-[var(--electric-blue)]" href="blog.html">Blog</a>
+<a class="hover:text-[var(--electric-blue)] transition-colors duration-300" href="contact.html">Contact</a>
+</div>
+</div>
+</div>
+</header>
+
+<!-- Hero Section -->
+<section class="relative z-10 py-20 px-4 text-center">
+<div class="container mx-auto">
+<h1 class="text-6xl font-extrabold text-white tracking-tighter font-[Syne] glitch md:text-8xl mb-6">
+Blog
+</h1>
+<p class="text-xl text-gray-400 max-w-3xl mx-auto">
+Insights, strategies, and behind-the-scenes stories from the world of Web3 marketing. Learn from our viral campaigns and stay ahead of the curve.
+</p>
+</div>
+</section>
+
+<!-- Featured Article -->
+<section class="relative z-10 py-20 px-4">
+<div class="container mx-auto">
+<div class="text-center mb-12">
+<h3 class="text-3xl font-bold text-white font-[Syne] mb-4">Featured Article</h3>
+</div>
+<div class="max-w-4xl mx-auto">
+<div class="relative group">
+<div class="absolute inset-0 bg-gradient-to-br from-[var(--electric-blue)]/20 via-[var(--purple)]/15 to-transparent rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-700"></div>
+<div class="relative bg-white/5 backdrop-blur-2xl border border-white/10 rounded-3xl overflow-hidden hover:bg-white/10 transition-all duration-700 shadow-[0_8px_32px_rgba(0,212,255,0.15)]">
+<div class="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent rounded-3xl"></div>
+<div class="relative z-10">
+<div class="h-64 bg-gradient-to-br from-[var(--electric-blue)]/20 to-[var(--purple)]/20 flex items-center justify-center">
+<div class="text-6xl">🚀</div>
+</div>
+<div class="p-8">
+<div class="flex items-center mb-4">
+<span class="px-3 py-1 bg-[var(--electric-blue)]/20 text-[var(--electric-blue)] rounded-full text-sm mr-3">Strategy</span>
+<span class="text-gray-400 text-sm">December 15, 2024</span>
+</div>
+<h2 class="text-3xl font-bold text-transparent bg-gradient-to-br from-[var(--electric-blue)] via-[var(--purple)] to-white bg-clip-text font-[Syne] mb-4">How We Made $MOON Go Viral in 48 Hours</h2>
+<p class="text-gray-300 mb-6 text-lg">
+A deep dive into the strategy, tactics, and execution that took MoonToken from unknown to trending #1 on Warpcast in just two days. Learn the exact framework we used to generate 10M+ impressions and drive massive community growth.
+</p>
+<div class="flex items-center justify-between">
+<div class="flex items-center">
+<div class="w-10 h-10 bg-[var(--electric-blue)] rounded-full flex items-center justify-center text-black font-bold mr-3">A</div>
+<div>
+<div class="text-white font-semibold">Andrew</div>
+<div class="text-gray-400 text-sm">Co-Founder</div>
+</div>
+</div>
+<button class="bg-transparent border-2 border-[var(--electric-blue)] text-[var(--electric-blue)] py-2 px-6 rounded-lg font-bold transition-all duration-300 hover:bg-[var(--electric-blue)] hover:text-black">
+Read More
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Recent Articles -->
+<section class="relative z-10 py-20 px-4">
+<div class="container mx-auto">
+<div class="text-center mb-16">
+<h3 class="text-4xl font-bold text-white font-[Syne] mb-4">Recent Articles</h3>
+<p class="text-gray-400 max-w-2xl mx-auto">Stay updated with the latest trends and strategies in Web3 marketing</p>
+</div>
+<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Article 1 -->
+<article class="relative group">
+<div class="absolute inset-0 bg-gradient-to-br from-[var(--purple)]/20 via-transparent to-[var(--purple)]/5 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-700"></div>
+<div class="relative bg-white/5 backdrop-blur-2xl border border-white/10 rounded-2xl overflow-hidden hover:bg-white/10 transition-all duration-700 shadow-[0_8px_32px_rgba(139,92,246,0.15)]">
+<div class="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent rounded-2xl"></div>
+<div class="relative z-10">
+<div class="h-48 bg-gradient-to-br from-[var(--purple)]/20 to-[var(--mint-green)]/20 flex items-center justify-center">
+<div class="text-4xl">📢</div>
+</div>
+<div class="p-6">
+<div class="flex items-center mb-3">
+<span class="px-2 py-1 bg-[var(--purple)]/20 text-[var(--purple)] rounded text-xs mr-2">Warpcast</span>
+<span class="text-gray-400 text-sm">Dec 10, 2024</span>
+</div>
+<h3 class="text-xl font-bold text-transparent bg-gradient-to-br from-[var(--purple)] via-white to-[var(--purple)]/70 bg-clip-text font-[Syne] mb-3">The Warpcast Algorithm: What Actually Works</h3>
+<p class="text-gray-300 text-sm mb-4">
+Reverse-engineering the Warpcast algorithm to understand what drives viral content and community engagement.
+</p>
+<div class="flex items-center">
+<div class="w-8 h-8 bg-[var(--mint-green)] rounded-full flex items-center justify-center text-black font-bold text-sm mr-2">K</div>
+<div>
+<div class="text-white text-sm font-semibold">Kenturik</div>
+<div class="text-gray-400 text-xs">Co-Founder</div>
+</div>
+</div>
+</div>
+</article>
+
+<!-- Article 2 -->
+<article class="blog-card rounded-xl overflow-hidden">
+<div class="h-48 bg-gradient-to-br from-[var(--mint-green)]/20 to-[var(--electric-blue)]/20 flex items-center justify-center">
+<div class="text-4xl">🎯</div>
+</div>
+<div class="p-6">
+<div class="flex items-center mb-3">
+<span class="px-2 py-1 bg-[var(--mint-green)]/20 text-[var(--mint-green)] rounded text-xs mr-2">Community</span>
+<span class="text-gray-400 text-sm">Dec 8, 2024</span>
+</div>
+<h3 class="text-xl font-bold text-white font-[Syne] mb-3">Building Communities That Actually Last</h3>
+<p class="text-gray-300 text-sm mb-4">
+Why most Web3 communities fail and the 5 principles we use to build sustainable, engaged communities.
+</p>
+<div class="flex items-center">
+<div class="w-8 h-8 bg-[var(--electric-blue)] rounded-full flex items-center justify-center text-black font-bold text-sm mr-2">A</div>
+<div>
+<div class="text-white text-sm font-semibold">Andrew</div>
+<div class="text-gray-400 text-xs">Co-Founder</div>
+</div>
+</div>
+</div>
+</article>
+
+<!-- Article 3 -->
+<article class="blog-card rounded-xl overflow-hidden">
+<div class="h-48 bg-gradient-to-br from-[var(--electric-blue)]/20 to-[var(--purple)]/20 flex items-center justify-center">
+<div class="text-4xl">💰</div>
+</div>
+<div class="p-6">
+<div class="flex items-center mb-3">
+<span class="px-2 py-1 bg-[var(--electric-blue)]/20 text-[var(--electric-blue)] rounded text-xs mr-2">Tokens</span>
+<span class="text-gray-400 text-sm">Dec 5, 2024</span>
+</div>
+<h3 class="text-xl font-bold text-white font-[Syne] mb-3">Token Launch Playbook: 2024 Edition</h3>
+<p class="text-gray-300 text-sm mb-4">
+Our complete guide to launching tokens in 2024, including new regulations, best practices, and market insights.
+</p>
+<div class="flex items-center">
+<div class="w-8 h-8 bg-[var(--purple)] rounded-full flex items-center justify-center text-black font-bold text-sm mr-2">K</div>
+<div>
+<div class="text-white text-sm font-semibold">Kenturik</div>
+<div class="text-gray-400 text-xs">Co-Founder</div>
+</div>
+</div>
+</div>
+</article>
+
+<!-- Article 4 -->
+<article class="blog-card rounded-xl overflow-hidden">
+<div class="h-48 bg-gradient-to-br from-[var(--purple)]/20 to-[var(--electric-blue)]/20 flex items-center justify-center">
+<div class="text-4xl">🔥</div>
+</div>
+<div class="p-6">
+<div class="flex items-center mb-3">
+<span class="px-2 py-1 bg-[var(--purple)]/20 text-[var(--purple)] rounded text-xs mr-2">Viral</span>
+<span class="text-gray-400 text-sm">Dec 3, 2024</span>
+</div>
+<h3 class="text-xl font-bold text-white font-[Syne] mb-3">The Psychology of Viral Content</h3>
+<p class="text-gray-300 text-sm mb-4">
+Understanding what makes content spread like wildfire in Web3 communities and how to engineer viral moments.
+</p>
+<div class="flex items-center">
+<div class="w-8 h-8 bg-[var(--mint-green)] rounded-full flex items-center justify-center text-black font-bold text-sm mr-2">A</div>
+<div>
+<div class="text-white text-sm font-semibold">Andrew</div>
+<div class="text-gray-400 text-xs">Co-Founder</div>
+</div>
+</div>
+</div>
+</article>
+
+<!-- Article 5 -->
+<article class="blog-card rounded-xl overflow-hidden">
+<div class="h-48 bg-gradient-to-br from-[var(--mint-green)]/20 to-[var(--purple)]/20 flex items-center justify-center">
+<div class="text-4xl">⚡</div>
+</div>
+<div class="p-6">
+<div class="flex items-center mb-3">
+<span class="px-2 py-1 bg-[var(--mint-green)]/20 text-[var(--mint-green)] rounded text-xs mr-2">Trends</span>
+<span class="text-gray-400 text-sm">Dec 1, 2024</span>
+</div>
+<h3 class="text-xl font-bold text-white font-[Syne] mb-3">Web3 Marketing Trends for 2025</h3>
+<p class="text-gray-300 text-sm mb-4">
+Predictions and trends that will shape Web3 marketing in 2025, from new platforms to emerging strategies.
+</p>
+<div class="flex items-center">
+<div class="w-8 h-8 bg-[var(--electric-blue)] rounded-full flex items-center justify-center text-black font-bold text-sm mr-2">K</div>
+<div>
+<div class="text-white text-sm font-semibold">Kenturik</div>
+<div class="text-gray-400 text-xs">Co-Founder</div>
+</div>
+</div>
+</div>
+</article>
+
+<!-- Article 6 -->
+<article class="blog-card rounded-xl overflow-hidden">
+<div class="h-48 bg-gradient-to-br from-[var(--electric-blue)]/20 to-[var(--mint-green)]/20 flex items-center justify-center">
+<div class="text-4xl">🎨</div>
+</div>
+<div class="p-6">
+<div class="flex items-center mb-3">
+<span class="px-2 py-1 bg-[var(--electric-blue)]/20 text-[var(--electric-blue)] rounded text-xs mr-2">Design</span>
+<span class="text-gray-400 text-sm">Nov 28, 2024</span>
+</div>
+<h3 class="text-xl font-bold text-white font-[Syne] mb-3">Visual Identity in Web3: Standing Out</h3>
+<p class="text-gray-300 text-sm mb-4">
+How to create a visual identity that resonates with Web3 communities while maintaining professional appeal.
+</p>
+<div class="flex items-center">
+<div class="w-8 h-8 bg-[var(--purple)] rounded-full flex items-center justify-center text-black font-bold text-sm mr-2">A</div>
+<div>
+<div class="text-white text-sm font-semibold">Andrew</div>
+<div class="text-gray-400 text-xs">Co-Founder</div>
+</div>
+</div>
+</div>
+</article>
+</div>
+</div>
+</section>
+
+<!-- Categories -->
+<section class="relative z-10 py-20 px-4 bg-gradient-to-r from-purple-900/20 to-blue-900/20">
+<div class="container mx-auto">
+<div class="text-center mb-16">
+<h3 class="text-4xl font-bold text-white font-[Syne] mb-4">Browse by Category</h3>
+<p class="text-gray-400 max-w-2xl mx-auto">Find articles that match your interests and needs</p>
+</div>
+<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+<div class="blog-card rounded-xl p-6 text-center">
+<div class="text-[var(--electric-blue)] text-3xl mb-3">🚀</div>
+<h4 class="text-lg font-bold text-white mb-2 font-[Syne]">Token Launches</h4>
+<p class="text-gray-400 text-sm mb-3">Strategies and insights for successful token launches</p>
+<div class="text-[var(--electric-blue)] text-sm font-semibold">12 Articles</div>
+</div>
+<div class="blog-card rounded-xl p-6 text-center">
+<div class="text-[var(--purple)] text-3xl mb-3">📢</div>
+<h4 class="text-lg font-bold text-white mb-2 font-[Syne]">Warpcast Marketing</h4>
+<p class="text-gray-400 text-sm mb-3">Master the art of viral content on Warpcast</p>
+<div class="text-[var(--purple)] text-sm font-semibold">8 Articles</div>
+</div>
+<div class="blog-card rounded-xl p-6 text-center">
+<div class="text-[var(--mint-green)] text-3xl mb-3">🌐</div>
+<h4 class="text-lg font-bold text-white mb-2 font-[Syne]">Community Building</h4>
+<p class="text-gray-400 text-sm mb-3">Build engaged and sustainable communities</p>
+<div class="text-[var(--mint-green)] text-sm font-semibold">15 Articles</div>
+</div>
+<div class="blog-card rounded-xl p-6 text-center">
+<div class="text-white text-3xl mb-3">📊</div>
+<h4 class="text-lg font-bold text-white mb-2 font-[Syne]">Case Studies</h4>
+<p class="text-gray-400 text-sm mb-3">Real campaigns, real results, real insights</p>
+<div class="text-white text-sm font-semibold">6 Articles</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Newsletter -->
+<section class="relative z-10 py-20 px-4">
+<div class="container mx-auto">
+<div class="max-w-2xl mx-auto text-center">
+<h3 class="text-4xl font-bold text-white font-[Syne] mb-4">Stay Updated</h3>
+<p class="text-gray-400 mb-8">Get the latest Web3 marketing insights delivered to your inbox. No spam, just value.</p>
+<div class="featured-card rounded-2xl p-8">
+<form class="flex flex-col sm:flex-row gap-4">
+<input type="email" placeholder="Enter your email" class="flex-1 px-4 py-3 rounded-lg bg-black/50 border border-gray-600 text-white placeholder-gray-400 focus:outline-none focus:border-[var(--electric-blue)]">
+<button type="submit" class="px-8 py-3 bg-transparent border-2 border-[var(--electric-blue)] text-[var(--electric-blue)] rounded-lg font-bold transition-all duration-300 hover:bg-[var(--electric-blue)] hover:text-black">
+Subscribe
+</button>
+</form>
+<p class="text-gray-500 text-sm mt-4">Join 5,000+ Web3 founders and marketers</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- CTA Section -->
+<section class="relative z-10 py-20 px-4 text-center">
+<div class="container mx-auto">
+<h3 class="text-4xl font-bold text-white font-[Syne] mb-4">Ready to Apply These Strategies?</h3>
+<p class="text-gray-400 max-w-2xl mx-auto mb-8">Reading about viral marketing is one thing. Executing it is another. Let us help you turn these insights into results.</p>
+<a href="contact.html" class="inline-flex min-w-[120px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-8 bg-transparent border-2 border-[var(--electric-blue)] text-lg font-bold text-white shadow-[0_0_15px_var(--electric-blue),_inset_0_0_15px_var(--electric-blue)] transition-all duration-300 hover:bg-[var(--electric-blue)] hover:shadow-[0_0_30px_var(--electric-blue)]">
+<span class="truncate">Work With Us</span>
+</a>
+</div>
+</section>
+
+<!-- Footer -->
+<footer class="relative z-10 p-8 text-center border-t border-gray-800">
+<div class="container mx-auto">
+<div class="flex flex-col md:flex-row justify-between items-center">
+<a href="index.html" class="text-2xl font-bold uppercase tracking-widest font-[Syne] mb-4 md:mb-0 text-white">
+PoP
+</a>
+<div class="flex space-x-6 mb-4 md:mb-0">
+<a href="#" class="text-gray-400 hover:text-[var(--electric-blue)] transition-colors">Twitter</a>
+<a href="#" class="text-gray-400 hover:text-[var(--electric-blue)] transition-colors">Warpcast</a>
+<a href="#" class="text-gray-400 hover:text-[var(--electric-blue)] transition-colors">Telegram</a>
+</div>
+</div>
+<div class="border-t border-gray-800 mt-8 pt-8">
+<p class="text-xs text-gray-500">© 2024 PoP (Proof of Promo). All rights reserved.</p>
+</div>
+</div>
+</footer>
+</div>
+
+<script>
+// Mobile menu toggle
+const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+const mobileMenu = document.getElementById('mobile-menu');
+
+mobileMenuBtn.addEventListener('click', () => {
+  mobileMenu.classList.toggle('active');
+});
+
+// Newsletter form
+document.querySelector('form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  alert('Thank you for subscribing! You\'ll receive our latest insights soon.');
+  this.reset();
+});
+</script>
+
+</body>
+</html> 
